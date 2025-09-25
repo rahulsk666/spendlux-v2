@@ -1,4 +1,4 @@
-// import AppBar from "@/components/appbar";
+import AppBar from "@/components/AppBar";
 import Header from "@/components/Header";
 
 export default async function AuthLayout({
@@ -10,7 +10,7 @@ export default async function AuthLayout({
     <>
       <Header />
       <main>{children}</main>
-      {/* <AppBar /> */}
+      <AppBar />
     </>
   );
 }

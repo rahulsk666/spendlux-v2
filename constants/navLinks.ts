@@ -10,14 +10,14 @@ export const linkItems = [
     label: "Analytics",
     id: "analytics",
     icon: "/bar_chart.svg",
-    href: "/analytics",
+    href: "/",
     title: "Analytics",
   },
   {
     label: "All Transactions",
     id: "transactions",
     icon: "/list.svg",
-    href: "/transactions",
+    href: "/",
     title: "Transactions",
   },
 ];
