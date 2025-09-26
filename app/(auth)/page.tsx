@@ -1,9 +1,11 @@
-import DashboardPage from "../../components/DashboardPage";
+import { getTransactions } from "@/lib/db/transactions";
+import DashboardClient from "../../components/DashboardClient";
 
 export default function Home() {
+  const data = getTransactions();
   return (
     <section>
-      <DashboardPage />
+      <DashboardClient data={data} />
     </section>
   );
 }

@@ -44,8 +44,22 @@
   --color-appbar-primary: var(--navigation-primary);
   --color-appbar-secondary: var(--navigation-secondary);
   --color-appbar-blue: var(--navigation-blue);
+  --color-semicircle-graph-card-background-1: var(
+    --radial-graph-card-background-1
+  );
+  --color-semicircle-graph-card-background-2: var(
+    --radial-graph-card-background-2
+  );
+  --color-transaction-card-background-1: var(--transaction-card-background-1);
+  --color-transaction-card-background-2: var(--transaction-card-background-2);
+  --color-transaction-card-background-3: var(--transaction-card-background-3);
+  --color-transaction-card-symbol-background-1: var(
+    --transaction-card-symbol-background-1
+  );
+  --color-transaction-card-symbol-background-2: var(
+    --transaction-card-symbol-background-2
+  );
 }
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -119,6 +133,13 @@
   --navigation-primary: #222633;
   --navigation-secondary: #3c4150;
   --navigation-blue: #007aff;
+  --radial-graph-card-background-1: #3032414c;
+  --radial-graph-card-background-2: #5f7ba61f;
+  --transaction-card-background-1: #262D3F;
+  --transaction-card-background-2: #4fd4341a;
+  --transaction-card-background-3: #ee0f0f40;
+  --transaction-card-symbol-background-1: #2f33414d;
+  --transaction-card-symbol-background-2: #6176c21f;
 }
 
 @layer base {

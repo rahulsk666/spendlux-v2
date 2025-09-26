@@ -2,7 +2,7 @@
 import { linkItems } from "@/constants/navLinks";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User } from "@supabase/supabase-js";
 
 type HeaderPageTypes = {
@@ -30,7 +30,7 @@ export default function HeaderClient({ user }: HeaderPageTypes) {
   }, [pathName]);
   return (
     <>
-      <div className="col-span-2 text-left text-xs p-5">
+      <div className="col-span-2 text-left text-xs p-5 pr-0">
         <p className="font-montserrat tracking-wider">
           Welcome!
           <span className="font-bold text-base pl-1">
@@ -42,16 +42,18 @@ export default function HeaderClient({ user }: HeaderPageTypes) {
           <span className="font-bold text-lg pl-2">{pageName.title}</span>
         </p>
       </div>
-      <a href="/profile" className="flex justify-end p-4">
-        <Avatar className="w-12 h-12">
-          <AvatarImage
-            alt="U"
-            src={user?.user_metadata?.avatar_url || undefined}
-            loading="eager"
-          />
-          <AvatarFallback>U</AvatarFallback>
-        </Avatar>
-      </a>
+      <div>
+        <a href="/profile" className="flex justify-end p-4">
+          <Avatar className="w-12 h-12">
+            <AvatarImage
+              alt="U"
+              src={user?.user_metadata?.avatar_url || undefined}
+              loading="eager"
+            />
+            <AvatarFallback>U</AvatarFallback>
+          </Avatar>
+        </a>
+      </div>
     </>
   );
 }

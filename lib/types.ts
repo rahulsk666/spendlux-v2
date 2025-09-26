@@ -14,3 +14,16 @@ export interface getTransactionsType {
   transactions: transactionType[];
   totalItems: number;
 }
+
+export interface SemiCircleProgressBarProps {
+  totalAmount: number;
+  spentAmount: number;
+  safeToSpend: number;
+  className?: string;
+}
+
+export interface ChartDataItem {
+  name: string;
+  safeToSpend: number;
+  spentAmount: number;
+}
