@@ -33,11 +33,11 @@ export function SemiCircleProgressBar({
   // Determine the dynamic class and the required offset for the label
   const getSafeToSpendPositionOffset = (safeToSpend: number): number => {
     if (safeToSpend > 100000) {
-      return 40; // Push label further left for "text-xl"
+      return 45; // Push label further left for "text-xl"
     } else if (safeToSpend > 50000) {
-      return 35; // Push label moderately for "text-lg"
+      return 40; // Push label moderately for "text-lg"
     } else if (safeToSpend > 10000) {
-      return 35; // Keep original offset for "text-base" (no change)
+      return 40; // Keep original offset for "text-base" (no change)
     } else {
       return 30; // Pull label slightly right for "text-sm"
     }
