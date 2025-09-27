@@ -37,6 +37,7 @@ export default function transactionCard({ transaction }: transactionCardTypes) {
               alt="rupee"
               width={30}
               height={30}
+              className="w-auto"
             />
           </div>
           <div className="w-full max-w-56 flex flex-col pl-7 pt-1.5">

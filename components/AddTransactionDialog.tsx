@@ -77,8 +77,6 @@ export function AddTransactionDialog({
     const loadCategory = async () => {
       const res = await fetch("/api/category");
       const { data } = await res.json();
-      console.log(data);
-
       setCategories(data);
     };
 
@@ -105,16 +103,13 @@ export function AddTransactionDialog({
         });
 
         const result = await res.json();
-
         if (!res.ok) {
           throw new Error(
             result.error?.message || "Failed to add transaction."
           );
         }
-
         form.reset();
         router.push("/");
-
         return result.data;
       })(),
       {

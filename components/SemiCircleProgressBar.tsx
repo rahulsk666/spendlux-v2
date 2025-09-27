@@ -30,6 +30,20 @@ export function SemiCircleProgressBar({
 }: SemiCircleProgressBarProps) {
   const percentage = Math.round((spentAmount / totalAmount) * 100);
   const spendAmountPercent = Math.round((safeToSpend / totalAmount) * 100);
+  // Determine the dynamic class and the required offset for the label
+  const getSafeToSpendPositionOffset = (safeToSpend: number): number => {
+    if (safeToSpend > 100000) {
+      return 40; // Push label further left for "text-xl"
+    } else if (safeToSpend > 50000) {
+      return 35; // Push label moderately for "text-lg"
+    } else if (safeToSpend > 10000) {
+      return 35; // Keep original offset for "text-base" (no change)
+    } else {
+      return 30; // Pull label slightly right for "text-sm"
+    }
+  };
+
+  const safeToSpendOffset = getSafeToSpendPositionOffset(safeToSpend);
 
   const chartData: ChartDataItem[] = [
     {
@@ -39,7 +53,7 @@ export function SemiCircleProgressBar({
     },
   ];
   return (
-    <Card className="flex flex-col p-0">
+    <Card className="flex flex-col p-0 max-h-56">
       <CardContent className={`flex flex-1 items-center pb-0 ${className}`}>
         <ChartContainer
           config={chartConfig}
@@ -99,14 +113,14 @@ export function SemiCircleProgressBar({
                           &#8377; {totalAmount.toLocaleString()}
                         </tspan>
                         <tspan
-                          x={centerX - 35}
+                          x={centerX - 25}
                           y={centerY + 40}
                           className="fill-white text-[8px] font-light"
                         >
                           safe to spend
                         </tspan>
                         <tspan
-                          x={centerX + 30}
+                          x={centerX + safeToSpendOffset}
                           y={centerY + 42}
                           className="fill-white text-base font-bold"
                         >
@@ -120,27 +134,17 @@ export function SemiCircleProgressBar({
               />
             </PolarRadiusAxis>
             <defs>
-                <linearGradient
-                  id="fillSafeToSpend"
-                  x1="1"
-                  y1="1"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="50%" stopColor="#7EFF64" stopOpacity={1} />
-                  <stop offset="100%" stopColor="#00BA16" stopOpacity={0.9} />
-                </linearGradient>  
-                <linearGradient
-                  id="fillSpentAmount"
-                  x1="0"
-                  y1="1"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="0%" stopColor="#7f1d1d" stopOpacity={0.95} />
-                  <stop offset="100%" stopColor="#991b1b" stopOpacity={0.95} />
-                </linearGradient>
-              </defs> 
+              <linearGradient id="fillSafeToSpend" x1="1" y1="1" x2="0" y2="1">
+                <stop offset="50%" stopColor="#7EFF64" stopOpacity={1} />
+                <stop offset="100%" stopColor="#00BA16" stopOpacity={0.9} />
+              </linearGradient>
+                
+              <linearGradient id="fillSpentAmount" x1="0" y1="1" x2="0" y2="1">
+                <stop offset="0%" stopColor="#7f1d1d" stopOpacity={0.95} />
+                <stop offset="100%" stopColor="#991b1b" stopOpacity={0.95} />
+              </linearGradient>
+            </defs>
+             
             <RadialBar
               dataKey="safeToSpend"
               stackId="a"
