@@ -26,9 +26,9 @@ export default function DashboardClient({ data }: DashboardPageProps) {
     <>
       <div className="mx-4">
         <SemiCircleProgressBar
-          totalAmount={totalIncome || 30000}
-          spentAmount={totalExpense || 10000}
-          safeToSpend={safeToSpend || 20000}
+          totalAmount={totalIncome || 0}
+          spentAmount={totalExpense || 0}
+          safeToSpend={safeToSpend || 0}
         />
       </div>
 

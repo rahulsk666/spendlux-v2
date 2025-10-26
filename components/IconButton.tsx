@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 
-type NavId = "home" | "create" | "analytics" | "transactions" | "";
+type NavId = "home" | "create" | "analytics" | "transactions" | "profile" | "";
 
 interface IconButtonProps {
   children: React.ReactNode;

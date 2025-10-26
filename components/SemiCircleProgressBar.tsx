@@ -28,7 +28,7 @@ export function SemiCircleProgressBar({
   safeToSpend = 20000,
   className,
 }: SemiCircleProgressBarProps) {
-  const percentage = Math.round((spentAmount / totalAmount) * 100);
+  const percentage = Math.round((spentAmount / totalAmount) * 100) || 0; // 0;
   const spendAmountPercent = Math.round((safeToSpend / totalAmount) * 100);
   // Determine the dynamic class and the required offset for the label
   const getSafeToSpendPositionOffset = (safeToSpend: number): number => {
